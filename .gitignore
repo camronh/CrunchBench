@@ -33,5 +33,4 @@ ENV/
 
 # Project specific
 .env
-data/*.csv
 output/*.json
