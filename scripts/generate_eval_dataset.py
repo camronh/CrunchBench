@@ -370,12 +370,12 @@ class GroundTruthGenerator:
         )
 
     def _hard_5_paid_fitness_diet_100k_reviews_4_5(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
-        question = ("What are the top 5 highest-rated paid apps that have a rating < 4.5, have 1,000+ reviews, "
+        question = ("What are the top 5 highest-rated paid apps that have a rating < 4.5, have 10+ reviews, "
                     "and mention 'fitness' or 'diet' in their description?")
         filtered = df[
             (df["price"] > 0) &
             (df["user_rating"] < 4.5) &
-            (df["rating_count_tot"] >= 1000)
+            (df["rating_count_tot"] >= 10)
         ].copy()
         mask_fit = filtered["app_desc"].str.lower(
         ).str.contains("fitness", na=False)
