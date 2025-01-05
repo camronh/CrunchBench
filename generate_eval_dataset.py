@@ -1,20 +1,19 @@
 import pandas as pd
 from typing import List, Optional
-from scripts.utils import slice_dataframe_by_tokens, load_data
+from utils import slice_dataframe_by_tokens, load_data
 from pydantic import BaseModel
 import uuid
 import inspect
 from types import FrameType
 from langsmith import Client
 from dotenv import load_dotenv
+from utils import dataset_name
 
 load_dotenv()
 
 # Create a namespace UUID for our analytics benchmark
 ANALYTICS_BENCHMARK_NAMESPACE = uuid.UUID(
     '6ba7b810-9dad-11d1-80b4-00c04fd430c8')
-
-dataset_name = "AnalyticsBench"
 
 
 class Example(BaseModel):
@@ -301,7 +300,7 @@ class GroundTruthGenerator:
         )
 
     def _medium_5_lowest_investment_15000_reviews_rating4(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
-        question = ("What are the bottom 5 lowest-rated apps that mention 'investment' in their description, "
+        question = ("What are the bottom 5 lowest-rated apps that explicitly mention the word 'investment' in their description, "
                     "have 15,000+ reviews, and have an average rating ≥ 4.0?")
         filtered = df[
             df["app_desc"].str.lower().str.contains("investment", na=False) &
@@ -320,7 +319,7 @@ class GroundTruthGenerator:
         )
 
     def _medium_3_lifestyle_family_15000_reviews(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
-        question = ("In the 'Entertainment' category, what are the top 3 highest-rated apps that mention 'family' "
+        question = ("In the 'Entertainment' category, what are the top 3 highest-rated apps that explicitly mention the word 'family' "
                     "in their description and have 100+ reviews?")
         ls_df = df[(df["prime_genre"].str.lower() == "entertainment")].copy()
         family_df = ls_df[ls_df["app_desc"].str.lower(
@@ -371,7 +370,7 @@ class GroundTruthGenerator:
 
     def _hard_5_paid_fitness_diet_100k_reviews_4_5(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
         question = ("What are the top 5 highest-rated paid apps that have a rating < 4.5, have 10+ reviews, "
-                    "and mention 'fitness' or 'diet' in their description?")
+                    "and explicitly mention the words 'fitness' or 'diet' in their description?")
         filtered = df[
             (df["price"] > 0) &
             (df["user_rating"] < 4.5) &
@@ -379,10 +378,8 @@ class GroundTruthGenerator:
         ].copy()
         mask_fit = filtered["app_desc"].str.lower(
         ).str.contains("fitness", na=False)
-        print(f"Found {len(filtered[mask_fit])} apps with fitness in description")
         mask_diet = filtered["app_desc"].str.lower(
         ).str.contains("diet", na=False)
-        print(f"Found {len(filtered[mask_diet])} apps with diet in description")
         final_df = filtered[mask_fit | mask_diet]
         sorted_df = final_df.sort_values(
             by="user_rating", ascending=False).head(5)
@@ -417,7 +414,7 @@ class GroundTruthGenerator:
         sorted_df = grouped.sort_values(
             by="rating_count_tot", ascending=False).head(1)
         ground_truth = sorted_df["prime_genre"].iloc[0] if len(
-            sorted_df) else "No category found"
+            sorted_df) else "None"
         return Example.create(
             question=question,
             ground_truth=ground_truth,
@@ -426,7 +423,7 @@ class GroundTruthGenerator:
         )
 
     def _hard_5_finance_stock_investment_rating_4_2(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
-        question = ("In the 'Games' category, what are the top 5 highest-rated apps that mention 'controller' or 'story' "
+        question = ("In the 'Games' category, what are the top 5 highest-rated apps that explicitly mention the words 'controller' or 'story' "
                     "in name or description, are paid, and have an average rating < 4.2?")
         # Convert genre column to lowercase for case-insensitive matching
         df_copy = df.copy()
@@ -459,7 +456,7 @@ class GroundTruthGenerator:
 
     def _veryhard_3_categories_cloud_15000_reviews_4_5_price_above1(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
         question = (
-            "For apps mentioning 'cloud' in their description, what are the top 3 categories by mean rating, "
+            "For apps explicitly mentioning the word 'cloud' in their description, what are the top 3 categories by mean rating, "
             "considering only apps that have 15,000+ reviews, have a rating ≥ 4.5, and cost more than $1?"
         )
         filtered = df[
@@ -484,7 +481,7 @@ class GroundTruthGenerator:
     def _veryhard_5_top10pct_reviews_bottom10pct_price_prod_4_5(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
         question = (
             "What are the top 5 highest-rated apps that are in the top 10% by review count, "
-            "in the bottom 10% by price (excluding free apps), mention 'productivity' in their description, "
+            "in the bottom 10% by price (excluding free apps), explicitly mention the word 'productivity' in their description, "
             "and have a rating ≥ 4.5?"
         )
         # top 10% by review
@@ -516,7 +513,7 @@ class GroundTruthGenerator:
 
     def _veryhard_single_cat_kids_highest_mean_rating_price_ratio(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
         question = (
-            'Among apps mentioning "kids" in name or description, which category has the highest '
+            'Among apps explicitly mentioning the word "kids" in name or description, which category has the highest '
             'mean-rating-to-mean-price ratio (excluding free apps)?'
         )
         kids_df = df[
@@ -533,7 +530,7 @@ class GroundTruthGenerator:
         sorted_df = grouped.sort_values(
             by="ratio", ascending=False)  # sort by ratio
         ground_truth = sorted_df.iloc[0]["prime_genre"] if len(
-            sorted_df) > 0 else "No category found"
+            sorted_df) > 0 else "None"
 
         return Example.create(
             question=question,
@@ -566,7 +563,7 @@ class GroundTruthGenerator:
         if len(sorted_std) > 0:
             ground_truth = sorted_std.iloc[0]["prime_genre"]
         else:
-            ground_truth = "No category found"
+            ground_truth = "None"
 
         return Example.create(
             question=question,
@@ -577,7 +574,7 @@ class GroundTruthGenerator:
 
     def _veryhard_3_apps_mention_two_of_learning_assistant_ai_study(self, df: pd.DataFrame, context_str: str, tokens_in_step: int) -> Example:
         question = (
-            'What are the top 3 apps by reviews-to-rating ratio that mention at least two of: "learning", '
+            'What are the top 3 apps by reviews-to-rating ratio that explicitly mention at least two of the words: "learning", '
             '"assistant", "AI", "study" and have 10,000+ reviews?'
         )
 
@@ -611,3 +608,8 @@ class GroundTruthGenerator:
             difficulty="Very Hard",
             tokens=tokens_in_step
         )
+
+
+if __name__ == "__main__":
+    gt_gen = GroundTruthGenerator()
+    gt_gen.generate_examples()

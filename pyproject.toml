@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "analytics-bench"
+name = "crunchbench"
 version = "0.1.0"
-description = "LLM Analytics Benchmark for testing how well LLMs handle structured data queries"
+description = "LLM Analytics Benchmark for testing how well LLMs handle unstructured data queries"
 authors = ["Your Name <your.email@example.com>"]
 readme = "readme.md"
 
@@ -15,6 +15,7 @@ python-dotenv = "^1.0.1"
 openai = "^1.59.3"
 pydantic = "^2.10.4"
 langsmith = "^0.2.10"
+langchain-openai = "^0.2.14"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.4"

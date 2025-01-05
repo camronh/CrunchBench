@@ -1,7 +1,7 @@
 # DF Model
 
 from pydantic import BaseModel
-
+from typing import TypedDict
 
 class App(BaseModel):
     id: str
@@ -14,3 +14,16 @@ class App(BaseModel):
     ver: str
     prime_genre: str
     app_desc: str
+
+
+class Example(TypedDict):
+    question: str
+    difficulty: str
+    tokens: int
+
+
+class ReferenceOutput(TypedDict):
+    ground_truth: str
+
+class Output(TypedDict):
+    answer: str
