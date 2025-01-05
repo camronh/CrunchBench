@@ -13,13 +13,13 @@ CrunchBench focuses on a model's ability to:
 
 ### Dataset
 
-We have 5 questions across 4 difficulty levels: Easy, Medium, Hard, and Very Hard. Each question is tested across different amounts of context, producing 20 examples per context size. As we move from 10k to 50k tokens in steps of 10k, that yields 100 total examples.
+We have 5 questions across 4 difficulty levels: Easy, Medium, Hard, and Very Hard. Each question is tested across different amounts of context, totaling 20 examples per context size. As we move from 10k to 50k tokens in steps of 10k, that yields 100 total examples.
 
 Questions range from simple filtering (e.g., “Which app has the most reviews?”) to more complex tasks (e.g., “For apps that mention ‘cloud,’ what are the top 3 categories by mean rating, considering only apps with 15,000+ reviews, rating ≥ 4.5, and cost > $1?”). Each difficulty level adds more filtering, statistical operations, and reasoning steps.
 
 ### Evaluation
 
-We use pandas to generate ground truth answers for each question in [this script](./scripts/generate_eval_dataset.py). The same process repeats for each context size, resulting in 100 example questions and answers. Which are published to the [LangSmith Dataset](https://smith.langchain.com/public/18c8f4ba-726a-44b2-99b7-527196a9c80c/d).
+We use pandas to generate ground truth answers for each question in [this script](./generate_eval_dataset.py). The same process repeats for each context size, resulting in 100 example questions and answers. Which are published to the [LangSmith Dataset](https://smith.langchain.com/public/18c8f4ba-726a-44b2-99b7-527196a9c80c/d).
 
 #### Scoring Methodology
 
