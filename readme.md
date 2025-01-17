@@ -19,19 +19,15 @@ Questions range from simple filtering to more complex tasks and logic. Each diff
 
 ```markdown
 # Easy
-- Among free apps, what are the top 3 by average rating?
 - What app has the most reviews?
 
 # Medium
 - Among paid apps with 15,000+ reviews, what are the 5 lowest-rated apps?
-- What category has the highest mean rating across all its apps?
 
 # Hard
 - Which category has the highest total review count among free apps?
-- What are the top 5 highest-rated paid apps that have a rating < 4.5, have 10+ reviews, and explicitly mention the words 'fitness' or 'diet' in their description?
 
 # Very Hard
-- Among apps explicitly mentioning the word "kids" in name or description, which category has the highest mean-rating-to-mean-price ratio (excluding free apps)?
 - For apps explicitly mentioning the word "cloud" in their description, what are the top 3 categories by mean rating, considering only apps that have 15,000+ reviews, have a rating ≥ 4.5, and cost more than $1?
 ```
 
