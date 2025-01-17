@@ -56,52 +56,7 @@ Description: Keeping up with friends is faster than ever.
 
 We have 5 questions across 4 difficulty levels: Easy, Medium, Hard, and Very Hard. Each question is tested across different amounts of context, totaling 20 examples per context size. As we move from 10k to 50k tokens in steps of 10k, that yields 100 total examples.
 
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>10k Tokens</th>
-      <th>20k Tokens</th>
-      <th>30k Tokens</th>
-      <th>40k Tokens</th>
-      <th>50k Tokens</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Easy</th>
-      <td style="background-color: #A8E6CF; color: #000;">Easy + 10k</td>
-      <td style="background-color: #ADE3CD; color: #000;">Easy + 20k</td>
-      <td style="background-color: #B1E0CB; color: #000;">Easy + 30k</td>
-      <td style="background-color: #B6DDC8; color: #000;">Easy + 40k</td>
-      <td style="background-color: #BAD9C6; color: #000;">Easy + 50k</td>
-    </tr>
-    <tr>
-      <th>Medium</th>
-      <td style="background-color: #BFD6C4; color: #000;">Medium + 10k</td>
-      <td style="background-color: #C3D3C2; color: #000;">Medium + 20k</td>
-      <td style="background-color: #C8D0BF; color: #000;">Medium + 30k</td>
-      <td style="background-color: #CDCDBD; color: #000;">Medium + 40k</td>
-      <td style="background-color: #D1CABB; color: #000;">Medium + 50k</td>
-    </tr>
-    <tr>
-      <th>Hard</th>
-      <td style="background-color: #D6C6B8; color: #000;">Hard + 10k</td>
-      <td style="background-color: #DAC3B6; color: #000;">Hard + 20k</td>
-      <td style="background-color: #DFC0B4; color: #000;">Hard + 30k</td>
-      <td style="background-color: #E3BDB1; color: #000;">Hard + 40k</td>
-      <td style="background-color: #E8B9AF; color: #000;">Hard + 50k</td>
-    </tr>
-    <tr>
-      <th>Very Hard</th>
-      <td style="background-color: #ECB6AD; color: #000;">Very Hard + 10k</td>
-      <td style="background-color: #F1B3AA; color: #000;">Very Hard + 20k</td>
-      <td style="background-color: #F5B0A8; color: #000;">Very Hard + 30k</td>
-      <td style="background-color: #FAACA6; color: #000;">Very Hard + 40k</td>
-      <td style="background-color: #FFAAA5; color: #000;">Very Hard + 50k</td>
-    </tr>
-  </tbody>
-</table>
+![Difficulty Levels](data/difficulty_table.png)
 
 At each step, the LLM is given the app store data, the question and [the instructions](/evaluation.py#L30-L31). ***We instruct the LLM to use [CoT reasoning](https://learnprompting.org/docs/intermediate/chain_of_thought) before answering the question.**
 
