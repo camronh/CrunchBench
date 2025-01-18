@@ -55,10 +55,9 @@ def visualize_results():
 
     x = np.arange(len(model_scores.index))
 
-    # The portion of the bar that is strictly correct
-    strict_vals = model_scores['strict_score']
-    # The difference (additional partial credit beyond the strict score)
-    partial_addon_vals = model_scores['score'] - model_scores['strict_score']
+    # Convert scores to percentages
+    strict_vals = model_scores['strict_score'] * 100
+    partial_addon_vals = (model_scores['score'] - model_scores['strict_score']) * 100
 
     fig, ax = plt.subplots(figsize=(12, 6))
 
@@ -80,27 +79,25 @@ def visualize_results():
     )
 
     ax.set_title("Average Score by Model", pad=20)
-    ax.set_xlabel("Average Score")
+    ax.set_xlabel("Score (%)")
     ax.set_yticks(x)
     ax.set_yticklabels(model_scores.index)
+    ax.set_xlim(0, 100)  # Set x-axis limits from 0 to 100%
     ax.legend()
 
     # Function to label the total score at the end of the stacked bar
     def autolabel_total(rects1, rects2):
         for r1, r2 in zip(rects1, rects2):
-            # widths of each segment
             w1 = r1.get_width()
             w2 = r2.get_width()
             
             total = w1 + w2
-            # y-position for the label
             y_pos = r1.get_y() + r1.get_height() / 2
             
-            # Place the total just to the right of the bar
             ax.text(
                 total,
                 y_pos,
-                f"{total:.2f}",
+                f"{total:.1f}%",  # Add % symbol
                 va='center',
                 ha='left',
                 fontsize=8
@@ -118,20 +115,21 @@ def visualize_results():
     # --- 2) Difficulty breakdown ---
     plt.figure(figsize=(12, 6))
 
-    # Reverse order so "Easy" is at the top and "Very Hard" is at the bottom in a horizontal bar
     difficulty_order = ["Very Hard", "Hard", "Medium", "Easy"]
 
+    # Convert scores to percentages
     diff_scores = df.pivot_table(
         index='difficulty',
         columns='model_name',
         values='score',
         aggfunc='mean'
-    ).reindex(difficulty_order)
+    ).reindex(difficulty_order) * 100
 
     diff_scores.plot(kind='barh', width=0.8)
     plt.title("Model Performance by Difficulty", pad=20)
     plt.ylabel("Difficulty Level")
-    plt.xlabel("Average Score")
+    plt.xlabel("Score (%)")
+    plt.xlim(0, 100)  # Set x-axis limits from 0 to 100%
     plt.legend(title="Model", bbox_to_anchor=(0.5, -0.15), loc='upper center', ncol=3)
     plt.tight_layout()
     plt.savefig('data/plots/2_difficulty_breakdown.png', bbox_inches='tight', dpi=300)
@@ -153,12 +151,13 @@ def visualize_results():
         include_lowest=True
     )
 
+    # Convert scores to percentages
     token_scores = df.pivot_table(
         index='token_bracket',
         columns='model_name',
         values='score',
         aggfunc='mean'
-    )
+    ) * 100
 
     # Reverse order so "10k" is at the top and "100k" at the bottom
     bracket_order = ['100k', '90k', '80k', '70k', '60k',
@@ -171,7 +170,8 @@ def visualize_results():
     token_scores.plot(kind='barh', width=0.8)
     plt.title("Model Performance by Token Size", pad=20)
     plt.ylabel("Token Bracket")
-    plt.xlabel("Average Score")
+    plt.xlabel("Score (%)")
+    plt.xlim(0, 100)  # Set x-axis limits from 0 to 100%
     plt.legend(title="Model", bbox_to_anchor=(0.5, -0.15), loc='upper center', ncol=3)
     plt.tight_layout()
     plt.savefig('data/plots/3_token_size_breakdown.png', bbox_inches='tight', dpi=300)

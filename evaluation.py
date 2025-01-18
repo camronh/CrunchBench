@@ -4,7 +4,7 @@ from models import Example
 from langchain_openai import ChatOpenAI
 import os
 from judges import correctness_judge
-
+import time
 
 class Model:
     def __init__(self, name: str):
@@ -45,7 +45,8 @@ free to BRIEFLY reason through your decision first to make sure you get your <AN
                 return self.llm.invoke(prompt).content
             except Exception as e:
                 if attempt == 0:  # Only print and continue if it's the first attempt
-                    print(f"First attempt failed: {e}. Retrying...")
+                    print(f"First attempt failed: {e}. Retrying in 30 seconds...")
+                    time.sleep(30)
                     continue
                 print(f"Retry failed: {e}")
                 raise e  # Re-raise the exception after retry fails
@@ -65,7 +66,7 @@ def run_evals(model_name: str, custom_label: str = None, max_concurrency: int = 
                                   "10k Tokens", "20k Tokens", "30k Tokens", "40k Tokens", "50k Tokens"]),
         evaluators=[correctness_judge],
         max_concurrency=max_concurrency,
-        experiment_prefix=model_name,
+        experiment_prefix=custom_label or model_name,
     )
 
     store_results(results, model_name, custom_label)
