@@ -8,7 +8,7 @@ CrunchBench focuses on a model's ability to:
 - Handle complex filtering and sorting operations
 - Perform multi-step reasoning on numerical and categorical data
 
-<!-- **Note:** The dataset contains about 150k tokens, but we currently test only up to 50k tokens. This keeps the benchmark affordable while still thoroughly testing each model’s capabilities. -->
+<!-- **Note:** The dataset contains about 150k tokens, but we currently test only up to 50k tokens. This keeps the benchmark affordable while still thoroughly testing each model's capabilities. -->
 
 ## Methodology
 
@@ -30,6 +30,8 @@ Questions range from simple filtering to more complex tasks and logic. Each diff
 # Very Hard
 - For apps explicitly mentioning the word "cloud" in their description, what are the top 3 categories by mean rating, considering only apps that have 15,000+ reviews, have a rating ≥ 4.5, and cost more than $1?
 ```
+
+See the complete list of [benchmark questions](questions.md).
 
 The app store data is from [this Kaggle dataset](https://www.kaggle.com/datasets/ramamet4/app-store-apple-data-set-10k-apps). After preprocessing, the app information is fed to the LLM in the following format:
 
