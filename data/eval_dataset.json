@@ -1,0 +1,3189 @@
+{
+  "rules": "- \"Rating\" means the Average User Rating field. \"Rating count\" means the Rating Count field.\n- A free app has a price of 0.0. A paid app has a price greater than 0.\n- \"Size\" means the Size field in MB.\n- A description \"contains the word X\" when X appears in the Description as a whole word, ignoring case.\n- Category names are the exact values of the Category field.\n- Identify each app by its ID and name.\n- Use every app in the data above, and only those apps.\n- If fewer items qualify than the question asks for, list only the ones that qualify. If none qualify, return an empty list.",
+  "cases": [
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Pandora Music Radio (ID 284035177)\n3. Bible (ID 282935706)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Which app has the largest size?",
+      "reference": "Facebook (ID 284882215)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. SCRABBLE Premium (ID 284815117)\n2. Solitaire by MobilityWare (ID 284791396)\n3. Hangman (ID 286911400)\n4. Crash Bandicoot Nitro Kart 3D (ID 285005463)\n5. PACMAN Premium (ID 281656475)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284815117,
+            "name": "SCRABBLE Premium"
+          },
+          {
+            "id": 284791396,
+            "name": "Solitaire by MobilityWare"
+          },
+          {
+            "id": 286911400,
+            "name": "Hangman"
+          },
+          {
+            "id": 285005463,
+            "name": "Crash Bandicoot Nitro Kart 3D"
+          },
+          {
+            "id": 281656475,
+            "name": "PACMAN Premium"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "9",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 9
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "RadarScope (ID 288419283)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 288419283,
+            "name": "RadarScope"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Bible (ID 282935706)\n2. Pandora Music Radio (ID 284035177)\n3. Shazam Discover music artists videos lyrics (ID 284993459)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 284993459,
+            "name": "Shazam Discover music artists videos lyrics"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. SCRABBLE Premium (ID 284815117)\n2. Cleartune Chromatic Tuner (ID 286799607)\n3. RadarScope (ID 288419283)\n4. Ms PACMAN (ID 284736660)\n5. Shanghai Mahjong (ID 283619399)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284815117,
+            "name": "SCRABBLE Premium"
+          },
+          {
+            "id": 286799607,
+            "name": "Cleartune Chromatic Tuner"
+          },
+          {
+            "id": 288419283,
+            "name": "RadarScope"
+          },
+          {
+            "id": 284736660,
+            "name": "Ms PACMAN"
+          },
+          {
+            "id": 283619399,
+            "name": "Shanghai Mahjong"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "1",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 1
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. iTranslate Language Translator Dictionary (ID 288113403)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 288113403,
+            "name": "iTranslate Language Translator Dictionary"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. Solitaire by MobilityWare (ID 284791396)\n2. SCRABBLE Premium (ID 284815117)\n3. Crash Bandicoot Nitro Kart 3D (ID 285005463)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284791396,
+            "name": "Solitaire by MobilityWare"
+          },
+          {
+            "id": 284815117,
+            "name": "SCRABBLE Premium"
+          },
+          {
+            "id": 285005463,
+            "name": "Crash Bandicoot Nitro Kart 3D"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$4.12",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 4.115,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "Hangman (ID 286911400)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 286911400,
+            "name": "Hangman"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "None (empty list)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": []
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Reference",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Reference"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "None (empty list)",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": []
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 8000,
+      "num_apps": 26,
+      "context_sha256": "e0a20c6b8e909843089862779f7b9c4ec360df3c2338198891c8dffad5e7694e",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Evernote stay organized (ID 281796108)\n2. PayPal Send and request money safely (ID 283646709)\n3. Solitaire by MobilityWare (ID 284791396)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 281796108,
+            "name": "Evernote stay organized"
+          },
+          {
+            "id": 283646709,
+            "name": "PayPal Send and request money safely"
+          },
+          {
+            "id": 284791396,
+            "name": "Solitaire by MobilityWare"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Pandora Music Radio (ID 284035177)\n3. Bible (ID 282935706)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Which app has the largest size?",
+      "reference": "Facebook (ID 284882215)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. PACMAN (ID 293778748)\n2. Blackjack by MobilityWare (ID 289523017)\n3. SCRABBLE Premium (ID 284815117)\n4. Solitaire by MobilityWare (ID 284791396)\n5. Hangman (ID 286911400)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 293778748,
+            "name": "PACMAN"
+          },
+          {
+            "id": 289523017,
+            "name": "Blackjack by MobilityWare"
+          },
+          {
+            "id": 284815117,
+            "name": "SCRABBLE Premium"
+          },
+          {
+            "id": 284791396,
+            "name": "Solitaire by MobilityWare"
+          },
+          {
+            "id": 286911400,
+            "name": "Hangman"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "14",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 14
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "RadarScope (ID 288419283)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 288419283,
+            "name": "RadarScope"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Bible (ID 282935706)\n2. Chase Mobile (ID 298867247)\n3. OpenTable Restaurant Reservations (ID 296581815)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 298867247,
+            "name": "Chase Mobile"
+          },
+          {
+            "id": 296581815,
+            "name": "OpenTable Restaurant Reservations"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. HotSchedules (ID 294934058)\n2. iFart The Original Fart Sounds App (ID 293760823)\n3. MotionX GPS (ID 299949744)\n4. Fish Tycoon (ID 297606726)\n5. Line Rider iRide (ID 290807369)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 294934058,
+            "name": "HotSchedules"
+          },
+          {
+            "id": 293760823,
+            "name": "iFart The Original Fart Sounds App"
+          },
+          {
+            "id": 299949744,
+            "name": "MotionX GPS"
+          },
+          {
+            "id": 297606726,
+            "name": "Fish Tycoon"
+          },
+          {
+            "id": 290807369,
+            "name": "Line Rider iRide"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "4",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 4
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. iHeartRadio Free Music Radio Stations (ID 290638154)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 290638154,
+            "name": "iHeartRadio Free Music Radio Stations"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. White Noise (ID 289894882)\n2. Fish Tycoon (ID 297606726)\n3. Solitaire by MobilityWare (ID 284791396)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 289894882,
+            "name": "White Noise"
+          },
+          {
+            "id": 297606726,
+            "name": "Fish Tycoon"
+          },
+          {
+            "id": 284791396,
+            "name": "Solitaire by MobilityWare"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "1. Music\n2. Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Music",
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$3.81",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 3.808181818181819,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Fieldrunners (ID 292421271)\n2. Blackjack by MobilityWare (ID 289523017)\n3. Hangman (ID 286911400)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 292421271,
+            "name": "Fieldrunners"
+          },
+          {
+            "id": 289523017,
+            "name": "Blackjack by MobilityWare"
+          },
+          {
+            "id": 286911400,
+            "name": "Hangman"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "None (empty list)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": []
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Reference\n3. Finance",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Reference",
+          "Finance"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "Music",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Music"
+        ]
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 16000,
+      "num_apps": 53,
+      "context_sha256": "503958cac6e1bd2682f3f52553a77b76ec3dbcf17b09879a4e133a45c3839e82",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Shazam Discover music artists videos lyrics (ID 284993459)\n3. iHeartRadio Free Music Radio Stations (ID 290638154)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 284993459,
+            "name": "Shazam Discover music artists videos lyrics"
+          },
+          {
+            "id": 290638154,
+            "name": "iHeartRadio Free Music Radio Stations"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Pandora Music Radio (ID 284035177)\n3. Bible (ID 282935706)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Which app has the largest size?",
+      "reference": "Sallys Spa (ID 307132353)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 307132353,
+            "name": "Sallys Spa"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. PACMAN (ID 293778748)\n2. Doodle Jump (ID 307727765)\n3. Beer Pong Game (ID 303849934)\n4. Blackjack by MobilityWare (ID 289523017)\n5. Sky Burger Build Match Food Free (ID 311972587)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 293778748,
+            "name": "PACMAN"
+          },
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          },
+          {
+            "id": 303849934,
+            "name": "Beer Pong Game"
+          },
+          {
+            "id": 289523017,
+            "name": "Blackjack by MobilityWare"
+          },
+          {
+            "id": 311972587,
+            "name": "Sky Burger Build Match Food Free"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "31",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 31
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "RadarScope (ID 288419283)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 288419283,
+            "name": "RadarScope"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Bible (ID 282935706)\n2. Zillow Real Estate Homes for Sale for Rent (ID 310738695)\n3. WhatsApp Messenger (ID 310633997)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 310738695,
+            "name": "Zillow Real Estate Homes for Sale for Rent"
+          },
+          {
+            "id": 310633997,
+            "name": "WhatsApp Messenger"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. HotSchedules (ID 294934058)\n2. iFart The Original Fart Sounds App (ID 293760823)\n3. HomeBudget with Sync (ID 306257910)\n4. Rowmote Remote Control for Mac (ID 300265786)\n5. MotionX GPS (ID 299949744)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 294934058,
+            "name": "HotSchedules"
+          },
+          {
+            "id": 293760823,
+            "name": "iFart The Original Fart Sounds App"
+          },
+          {
+            "id": 306257910,
+            "name": "HomeBudget with Sync"
+          },
+          {
+            "id": 300265786,
+            "name": "Rowmote Remote Control for Mac"
+          },
+          {
+            "id": 299949744,
+            "name": "MotionX GPS"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "8",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 8
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. iHeartRadio Free Music Radio Stations (ID 290638154)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 290638154,
+            "name": "iHeartRadio Free Music Radio Stations"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. Doodle Jump (ID 307727765)\n2. Pocket God (ID 301387274)\n3. Sunday Lawn (ID 313199385)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          },
+          {
+            "id": 301387274,
+            "name": "Pocket God"
+          },
+          {
+            "id": 313199385,
+            "name": "Sunday Lawn"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "1. Health & Fitness\n2. Games\n3. Music",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Health & Fitness",
+          "Games",
+          "Music"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$2.71",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 2.71,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Phase 10 Pro Play Your Friends (ID 302049354)\n2. Fieldrunners (ID 292421271)\n3. Unblock Me (ID 315021242)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 302049354,
+            "name": "Phase 10 Pro Play Your Friends"
+          },
+          {
+            "id": 292421271,
+            "name": "Fieldrunners"
+          },
+          {
+            "id": 315021242,
+            "name": "Unblock Me"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "1. Sallys Spa (ID 307132353)\n2. Map My Run GPS Running Workout Tracker (ID 306468004)\n3. Map My Ride GPS Cycling Route Tracker (ID 306561234)\n4. Peggle Classic (ID 314303518)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 307132353,
+            "name": "Sallys Spa"
+          },
+          {
+            "id": 306468004,
+            "name": "Map My Run GPS Running Workout Tracker"
+          },
+          {
+            "id": 306561234,
+            "name": "Map My Ride GPS Cycling Route Tracker"
+          },
+          {
+            "id": 314303518,
+            "name": "Peggle Classic"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Entertainment",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Entertainment"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Health & Fitness\n3. Music",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Health & Fitness",
+          "Music"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "Social Networking",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Social Networking"
+        ]
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 32000,
+      "num_apps": 107,
+      "context_sha256": "ac9ace5133665925c9b4c6a3b1de1d265bcf30ed2caf2018b1bf3311b7ba5254",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. Shazam Discover music artists videos lyrics (ID 284993459)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 284993459,
+            "name": "Shazam Discover music artists videos lyrics"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Pandora Music Radio (ID 284035177)\n3. Bible (ID 282935706)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Which app has the largest size?",
+      "reference": "Grand Theft Auto Chinatown Wars (ID 344186162)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 344186162,
+            "name": "Grand Theft Auto Chinatown Wars"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Angry Birds (ID 343200656)\n2. PACMAN (ID 293778748)\n3. Plants vs Zombies (ID 350642635)\n4. Doodle Jump (ID 307727765)\n5. Traffic Rush (ID 322423174)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          },
+          {
+            "id": 293778748,
+            "name": "PACMAN"
+          },
+          {
+            "id": 350642635,
+            "name": "Plants vs Zombies"
+          },
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          },
+          {
+            "id": 322423174,
+            "name": "Traffic Rush"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "68",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 68
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "RadarScope (ID 288419283)\nChess Pro with Coach LearnPlay Online Friends (ID 318304532)\nTuneIn Radio Pro MLB Audiobooks Podcasts Music (ID 319295332)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 288419283,
+            "name": "RadarScope"
+          },
+          {
+            "id": 318304532,
+            "name": "Chess Pro with Coach LearnPlay Online Friends"
+          },
+          {
+            "id": 319295332,
+            "name": "TuneIn Radio Pro MLB Audiobooks Podcasts Music"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Bible (ID 282935706)\n2. Spotify Music (ID 324684580)\n3. Angry Birds (ID 343200656)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 324684580,
+            "name": "Spotify Music"
+          },
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. Camera Plus For Macro Photos Remote Photography (ID 330803072)\n2. HotSchedules (ID 294934058)\n3. iFart The Original Fart Sounds App (ID 293760823)\n4. HomeBudget with Sync (ID 306257910)\n5. Rowmote Remote Control for Mac (ID 300265786)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 330803072,
+            "name": "Camera Plus For Macro Photos Remote Photography"
+          },
+          {
+            "id": 294934058,
+            "name": "HotSchedules"
+          },
+          {
+            "id": 293760823,
+            "name": "iFart The Original Fart Sounds App"
+          },
+          {
+            "id": 306257910,
+            "name": "HomeBudget with Sync"
+          },
+          {
+            "id": 300265786,
+            "name": "Rowmote Remote Control for Mac"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "25",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 25
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. Spotify Music (ID 324684580)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 324684580,
+            "name": "Spotify Music"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. Plants vs Zombies (ID 350642635)\n2. Doodle Jump (ID 307727765)\n3. Traffic Rush (ID 322423174)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 350642635,
+            "name": "Plants vs Zombies"
+          },
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          },
+          {
+            "id": 322423174,
+            "name": "Traffic Rush"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "1. Health & Fitness\n2. Music\n3. Weather",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Health & Fitness",
+          "Music",
+          "Weather"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$2.68",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 2.6849152542372887,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Angry Birds (ID 343200656)\n2. Phase 10 Pro Play Your Friends (ID 302049354)\n3. Fieldrunners (ID 292421271)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          },
+          {
+            "id": 302049354,
+            "name": "Phase 10 Pro Play Your Friends"
+          },
+          {
+            "id": 292421271,
+            "name": "Fieldrunners"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "1. Sallys Spa (ID 307132353)\n2. Map My Run GPS Running Workout Tracker (ID 306468004)\n3. Map My Ride GPS Cycling Route Tracker (ID 306561234)\n4. Peggle Classic (ID 314303518)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 307132353,
+            "name": "Sallys Spa"
+          },
+          {
+            "id": 306468004,
+            "name": "Map My Run GPS Running Workout Tracker"
+          },
+          {
+            "id": 306561234,
+            "name": "Map My Ride GPS Cycling Route Tracker"
+          },
+          {
+            "id": 314303518,
+            "name": "Peggle Classic"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Photo & Video",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Photo & Video"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Business",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Business"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Health & Fitness\n3. Music",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Health & Fitness",
+          "Music"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "Social Networking",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Social Networking"
+        ]
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 64000,
+      "num_apps": 215,
+      "context_sha256": "baedc851810c9625670a48d49b3c9f90cc05b96533b49190051f1b0dda00f608",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Bible (ID 282935706)\n2. Spotify Music (ID 324684580)\n3. Angry Birds (ID 343200656)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 324684580,
+            "name": "Spotify Music"
+          },
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Instagram (ID 389801252)\n3. Temple Run (ID 420009108)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 389801252,
+            "name": "Instagram"
+          },
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Which app has the largest size?",
+      "reference": "Need for Speed Hot Pursuit (ID 394732447)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 394732447,
+            "name": "Need for Speed Hot Pursuit"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Temple Run (ID 420009108)\n2. Angry Birds (ID 343200656)\n3. Fruit Ninja Classic (ID 362949845)\n4. Solitaire (ID 359917414)\n5. PACMAN (ID 293778748)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          },
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          },
+          {
+            "id": 362949845,
+            "name": "Fruit Ninja Classic"
+          },
+          {
+            "id": 359917414,
+            "name": "Solitaire"
+          },
+          {
+            "id": 293778748,
+            "name": "PACMAN"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "141",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 141
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "RadarScope (ID 288419283)\nChess Pro with Coach LearnPlay Online Friends (ID 318304532)\nTuneIn Radio Pro MLB Audiobooks Podcasts Music (ID 319295332)\nNotability (ID 360593530)\nSCRABBLE Premium for iPad (ID 363306776)\nforScore (ID 363738376)\niAnnotate PDF (ID 363998953)\nPDF Reader Pro Edition Annotateedit sign PDFs (ID 364502063)\nNotes Plus (ID 374211477)\nCarcassonne (ID 375295479)\nNoteshelf (ID 392188745)\nChess Pro with coach (ID 423198259)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 288419283,
+            "name": "RadarScope"
+          },
+          {
+            "id": 318304532,
+            "name": "Chess Pro with Coach LearnPlay Online Friends"
+          },
+          {
+            "id": 319295332,
+            "name": "TuneIn Radio Pro MLB Audiobooks Podcasts Music"
+          },
+          {
+            "id": 360593530,
+            "name": "Notability"
+          },
+          {
+            "id": 363306776,
+            "name": "SCRABBLE Premium for iPad"
+          },
+          {
+            "id": 363738376,
+            "name": "forScore"
+          },
+          {
+            "id": 363998953,
+            "name": "iAnnotate PDF"
+          },
+          {
+            "id": 364502063,
+            "name": "PDF Reader Pro Edition Annotateedit sign PDFs"
+          },
+          {
+            "id": 374211477,
+            "name": "Notes Plus"
+          },
+          {
+            "id": 375295479,
+            "name": "Carcassonne"
+          },
+          {
+            "id": 392188745,
+            "name": "Noteshelf"
+          },
+          {
+            "id": 423198259,
+            "name": "Chess Pro with coach"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Flashlight (ID 381471023)\n2. Zappos shop shoes clothes fast free shipping (ID 392988420)\n3. The Guardian (ID 409128287)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 381471023,
+            "name": "Flashlight"
+          },
+          {
+            "id": 392988420,
+            "name": "Zappos shop shoes clothes fast free shipping"
+          },
+          {
+            "id": 409128287,
+            "name": "The Guardian"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. Camera Plus For Macro Photos Remote Photography (ID 330803072)\n2. HotSchedules (ID 294934058)\n3. Drift Mania Championship (ID 378782714)\n4. iFart The Original Fart Sounds App (ID 293760823)\n5. HomeBudget with Sync (ID 306257910)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 330803072,
+            "name": "Camera Plus For Macro Photos Remote Photography"
+          },
+          {
+            "id": 294934058,
+            "name": "HotSchedules"
+          },
+          {
+            "id": 378782714,
+            "name": "Drift Mania Championship"
+          },
+          {
+            "id": 293760823,
+            "name": "iFart The Original Fart Sounds App"
+          },
+          {
+            "id": 306257910,
+            "name": "HomeBudget with Sync"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "73",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 73
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. Spotify Music (ID 324684580)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 324684580,
+            "name": "Spotify Music"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. Plants vs Zombies (ID 350642635)\n2. Doodle Jump (ID 307727765)\n3. Fruit Ninja Classic (ID 362949845)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 350642635,
+            "name": "Plants vs Zombies"
+          },
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          },
+          {
+            "id": 362949845,
+            "name": "Fruit Ninja Classic"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "1. Health & Fitness\n2. Reference\n3. Productivity",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Health & Fitness",
+          "Reference",
+          "Productivity"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$2.87",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 2.8650000000000007,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Sudoku (ID 372283316)\n2. Angry Birds (ID 343200656)\n3. Sudoku (ID 366247306)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 372283316,
+            "name": "Sudoku"
+          },
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          },
+          {
+            "id": 366247306,
+            "name": "Sudoku"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "1. Infinity Blade (ID 387428400)\n2. Worms 2 Armageddon (ID 355524910)\n3. Neuroshima Hex (ID 391297152)\n4. Sallys Spa (ID 307132353)\n5. Bodyweight Training You Are Your Own Gym (ID 416981420)\n6. Carcassonne (ID 375295479)\n7. My Horse (ID 421167112)\n8. Battleheart (ID 394057299)\n9. Capital One Mobile (ID 407558537)\n10. Legendary Wars (ID 413423472)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 387428400,
+            "name": "Infinity Blade"
+          },
+          {
+            "id": 355524910,
+            "name": "Worms 2 Armageddon"
+          },
+          {
+            "id": 391297152,
+            "name": "Neuroshima Hex"
+          },
+          {
+            "id": 307132353,
+            "name": "Sallys Spa"
+          },
+          {
+            "id": 416981420,
+            "name": "Bodyweight Training You Are Your Own Gym"
+          },
+          {
+            "id": 375295479,
+            "name": "Carcassonne"
+          },
+          {
+            "id": 421167112,
+            "name": "My Horse"
+          },
+          {
+            "id": 394057299,
+            "name": "Battleheart"
+          },
+          {
+            "id": 407558537,
+            "name": "Capital One Mobile"
+          },
+          {
+            "id": 413423472,
+            "name": "Legendary Wars"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Photo & Video",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Photo & Video"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Education",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Education"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Health & Fitness\n3. Photo & Video",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Health & Fitness",
+          "Photo & Video"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "Photo & Video",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Photo & Video"
+        ]
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 128000,
+      "num_apps": 421,
+      "context_sha256": "47384884bc86f8767938b34cbb78446c0e5dcccd7b63a1fe1745410a6e8d0693",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Instagram (ID 389801252)\n2. Temple Run (ID 420009108)\n3. Bible (ID 282935706)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 389801252,
+            "name": "Instagram"
+          },
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Instagram (ID 389801252)\n3. Clash of Clans (ID 529479190)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 389801252,
+            "name": "Instagram"
+          },
+          {
+            "id": 529479190,
+            "name": "Clash of Clans"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Which app has the largest size?",
+      "reference": "Modern Combat 4 Zero Hour (ID 558433129)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 558433129,
+            "name": "Modern Combat 4 Zero Hour"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Clash of Clans (ID 529479190)\n2. Temple Run (ID 420009108)\n3. Candy Crush Saga (ID 553834731)\n4. Angry Birds (ID 343200656)\n5. Subway Surfers (ID 512939461)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 529479190,
+            "name": "Clash of Clans"
+          },
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          },
+          {
+            "id": 553834731,
+            "name": "Candy Crush Saga"
+          },
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          },
+          {
+            "id": 512939461,
+            "name": "Subway Surfers"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "342",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 342
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "FINAL FANTASY IV (ID 575119311)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 575119311,
+            "name": "FINAL FANTASY IV"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Head Soccer (ID 487119327)\n2. Dominos Pizza USA (ID 436491861)\n3. Flashlight (ID 381471023)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 487119327,
+            "name": "Head Soccer"
+          },
+          {
+            "id": 436491861,
+            "name": "Dominos Pizza USA"
+          },
+          {
+            "id": 381471023,
+            "name": "Flashlight"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. Camera Plus For Macro Photos Remote Photography (ID 330803072)\n2. HotSchedules (ID 294934058)\n3. Drift Mania Championship (ID 378782714)\n4. iFart The Original Fart Sounds App (ID 293760823)\n5. HomeBudget with Sync (ID 306257910)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 330803072,
+            "name": "Camera Plus For Macro Photos Remote Photography"
+          },
+          {
+            "id": 294934058,
+            "name": "HotSchedules"
+          },
+          {
+            "id": 378782714,
+            "name": "Drift Mania Championship"
+          },
+          {
+            "id": 293760823,
+            "name": "iFart The Original Fart Sounds App"
+          },
+          {
+            "id": 306257910,
+            "name": "HomeBudget with Sync"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "235",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 235
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. Spotify Music (ID 324684580)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 324684580,
+            "name": "Spotify Music"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. Clear Vision 17 (ID 500116670)\n2. Plants vs Zombies (ID 350642635)\n3. Doodle Jump (ID 307727765)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 500116670,
+            "name": "Clear Vision 17"
+          },
+          {
+            "id": 350642635,
+            "name": "Plants vs Zombies"
+          },
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "1. Reference\n2. Health & Fitness\n3. Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Reference",
+          "Health & Fitness",
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$2.86",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 2.8616814159292034,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Head Soccer (ID 487119327)\n2. Sudoku (ID 372283316)\n3. Tap the Frog (ID 483353496)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 487119327,
+            "name": "Head Soccer"
+          },
+          {
+            "id": 372283316,
+            "name": "Sudoku"
+          },
+          {
+            "id": 483353496,
+            "name": "Tap the Frog"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "1. Gangstar Vegas (ID 571393580)\n2. NOVA 3 Near Orbit Vanguard Alliance (ID 474764934)\n3. Modern Combat 3 Fallen Nation (ID 442522082)\n4. Injustice Gods Among Us (ID 575658129)\n5. Gangstar Rio City of Saints (ID 453051448)\n6. Sky Gamblers Storm Raiders (ID 574375380)\n7. The Bards Tale (ID 480375355)\n8. Cytus (ID 485246824)\n9. The Silent Age (ID 580991034)\n10. Infinity Blade II (ID 447689011)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 571393580,
+            "name": "Gangstar Vegas"
+          },
+          {
+            "id": 474764934,
+            "name": "NOVA 3 Near Orbit Vanguard Alliance"
+          },
+          {
+            "id": 442522082,
+            "name": "Modern Combat 3 Fallen Nation"
+          },
+          {
+            "id": 575658129,
+            "name": "Injustice Gods Among Us"
+          },
+          {
+            "id": 453051448,
+            "name": "Gangstar Rio City of Saints"
+          },
+          {
+            "id": 574375380,
+            "name": "Sky Gamblers Storm Raiders"
+          },
+          {
+            "id": 480375355,
+            "name": "The Bards Tale"
+          },
+          {
+            "id": 485246824,
+            "name": "Cytus"
+          },
+          {
+            "id": 580991034,
+            "name": "The Silent Age"
+          },
+          {
+            "id": 447689011,
+            "name": "Infinity Blade II"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Photo & Video",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Photo & Video"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Entertainment",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Entertainment"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Photo & Video\n3. Health & Fitness",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Photo & Video",
+          "Health & Fitness"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "Social Networking",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Social Networking"
+        ]
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 256000,
+      "num_apps": 840,
+      "context_sha256": "a73a2ec96f1f8adfe48d908d108cc424f64da83a0f5abd0286897edb054929ed",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Instagram (ID 389801252)\n2. Clash of Clans (ID 529479190)\n3. Temple Run (ID 420009108)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 389801252,
+            "name": "Instagram"
+          },
+          {
+            "id": 529479190,
+            "name": "Clash of Clans"
+          },
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E1",
+      "difficulty": "Easy",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Which 3 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Facebook (ID 284882215)\n2. Instagram (ID 389801252)\n3. Clash of Clans (ID 529479190)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284882215,
+            "name": "Facebook"
+          },
+          {
+            "id": 389801252,
+            "name": "Instagram"
+          },
+          {
+            "id": 529479190,
+            "name": "Clash of Clans"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E2",
+      "difficulty": "Easy",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Which app has the largest size?",
+      "reference": "Rpublique (ID 687888390)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 687888390,
+            "name": "Rpublique"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E3",
+      "difficulty": "Easy",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Clash of Clans (ID 529479190)\n2. Temple Run (ID 420009108)\n3. Candy Crush Saga (ID 553834731)\n4. Angry Birds (ID 343200656)\n5. Subway Surfers (ID 512939461)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 529479190,
+            "name": "Clash of Clans"
+          },
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          },
+          {
+            "id": 553834731,
+            "name": "Candy Crush Saga"
+          },
+          {
+            "id": 343200656,
+            "name": "Angry Birds"
+          },
+          {
+            "id": 512939461,
+            "name": "Subway Surfers"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "E4",
+      "difficulty": "Easy",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "How many apps are in the 'Games' category?",
+      "reference": "973",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 973
+      }
+    },
+    {
+      "question_id": "E5",
+      "difficulty": "Easy",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Which app or apps have the highest price? List every app at that price.",
+      "reference": "Speak Translate Live Voice and Text Translator (ID 804637783)",
+      "answer": {
+        "kind": "apps",
+        "ordered": false,
+        "items": [
+          {
+            "id": 804637783,
+            "name": "Speak Translate Live Voice and Text Translator"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M1",
+      "difficulty": "Medium",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Head Soccer (ID 487119327)\n2. Sniper 3D Assassin Shoot to Kill Gun Game (ID 930574573)\n3. Geometry Dash Lite (ID 698255242)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 487119327,
+            "name": "Head Soccer"
+          },
+          {
+            "id": 930574573,
+            "name": "Sniper 3D Assassin Shoot to Kill Gun Game"
+          },
+          {
+            "id": 698255242,
+            "name": "Geometry Dash Lite"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M2",
+      "difficulty": "Medium",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.",
+      "reference": "1. KIMOJI (ID 1068019093)\n2. Camera Plus For Macro Photos Remote Photography (ID 330803072)\n3. HotSchedules (ID 294934058)\n4. Drift Mania Championship (ID 378782714)\n5. RBI Baseball 14 (ID 783753727)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 1068019093,
+            "name": "KIMOJI"
+          },
+          {
+            "id": 330803072,
+            "name": "Camera Plus For Macro Photos Remote Photography"
+          },
+          {
+            "id": 294934058,
+            "name": "HotSchedules"
+          },
+          {
+            "id": 378782714,
+            "name": "Drift Mania Championship"
+          },
+          {
+            "id": 783753727,
+            "name": "RBI Baseball 14"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "M3",
+      "difficulty": "Medium",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "How many free apps have a rating of 4.5 or higher?",
+      "reference": "828",
+      "answer": {
+        "kind": "count",
+        "ordered": false,
+        "value": 828
+      }
+    },
+    {
+      "question_id": "M4",
+      "difficulty": "Medium",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Which category has the highest total rating count across its paid apps?",
+      "reference": "Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "M5",
+      "difficulty": "Medium",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Pandora Music Radio (ID 284035177)\n2. Bible (ID 282935706)\n3. Spotify Music (ID 324684580)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 284035177,
+            "name": "Pandora Music Radio"
+          },
+          {
+            "id": 282935706,
+            "name": "Bible"
+          },
+          {
+            "id": 324684580,
+            "name": "Spotify Music"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H1",
+      "difficulty": "Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.",
+      "reference": "1. Clear Vision 17 (ID 500116670)\n2. Plants vs Zombies (ID 350642635)\n3. Doodle Jump (ID 307727765)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 500116670,
+            "name": "Clear Vision 17"
+          },
+          {
+            "id": 350642635,
+            "name": "Plants vs Zombies"
+          },
+          {
+            "id": 307727765,
+            "name": "Doodle Jump"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H2",
+      "difficulty": "Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.",
+      "reference": "1. Health & Fitness\n2. Reference\n3. Games",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Health & Fitness",
+          "Reference",
+          "Games"
+        ]
+      }
+    },
+    {
+      "question_id": "H3",
+      "difficulty": "Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.",
+      "reference": "$3.03",
+      "answer": {
+        "kind": "number",
+        "ordered": false,
+        "value": 3.0300000000000002,
+        "decimals": 2
+      }
+    },
+    {
+      "question_id": "H4",
+      "difficulty": "Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.",
+      "reference": "1. Head Soccer (ID 487119327)\n2. Geometry Dash Lite (ID 698255242)\n3. Geometry Dash (ID 625334537)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 487119327,
+            "name": "Head Soccer"
+          },
+          {
+            "id": 698255242,
+            "name": "Geometry Dash Lite"
+          },
+          {
+            "id": 625334537,
+            "name": "Geometry Dash"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "H5",
+      "difficulty": "Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.",
+      "reference": "1. Rpublique (ID 687888390)\n2. World of Tanks Blitz (ID 859204347)\n3. Lumino City (ID 958604518)\n4. Dungeon Hunter 5 Multiplayer RPG on iOS (ID 885823239)\n5. WWE Immortals (ID 941421328)\n6. Deemo (ID 700637744)\n7. Gangstar Vegas (ID 571393580)\n8. NOVA 3 Near Orbit Vanguard Alliance (ID 474764934)\n9. Modern Combat 3 Fallen Nation (ID 442522082)\n10. CSR Racing 2 (ID 887947640)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 687888390,
+            "name": "Rpublique"
+          },
+          {
+            "id": 859204347,
+            "name": "World of Tanks Blitz"
+          },
+          {
+            "id": 958604518,
+            "name": "Lumino City"
+          },
+          {
+            "id": 885823239,
+            "name": "Dungeon Hunter 5 Multiplayer RPG on iOS"
+          },
+          {
+            "id": 941421328,
+            "name": "WWE Immortals"
+          },
+          {
+            "id": 700637744,
+            "name": "Deemo"
+          },
+          {
+            "id": 571393580,
+            "name": "Gangstar Vegas"
+          },
+          {
+            "id": 474764934,
+            "name": "NOVA 3 Near Orbit Vanguard Alliance"
+          },
+          {
+            "id": 442522082,
+            "name": "Modern Combat 3 Fallen Nation"
+          },
+          {
+            "id": 887947640,
+            "name": "CSR Racing 2"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": "V1",
+      "difficulty": "Very Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?",
+      "reference": "Entertainment",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Entertainment"
+        ]
+      }
+    },
+    {
+      "question_id": "V2",
+      "difficulty": "Very Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?",
+      "reference": "Food & Drink",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Food & Drink"
+        ]
+      }
+    },
+    {
+      "question_id": "V3",
+      "difficulty": "Very Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.",
+      "reference": "1. Games\n2. Photo & Video\n3. Entertainment",
+      "answer": {
+        "kind": "categories",
+        "ordered": true,
+        "items": [
+          "Games",
+          "Photo & Video",
+          "Entertainment"
+        ]
+      }
+    },
+    {
+      "question_id": "V4",
+      "difficulty": "Very Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.",
+      "reference": "Social Networking",
+      "answer": {
+        "kind": "categories",
+        "ordered": false,
+        "items": [
+          "Social Networking"
+        ]
+      }
+    },
+    {
+      "question_id": "V5",
+      "difficulty": "Very Hard",
+      "tokens": 512000,
+      "num_apps": 1731,
+      "context_sha256": "89f9189681926f01f6e987c9ccaa9e84e7aa311bea4cbf3f84ea980a4e484eb3",
+      "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.",
+      "reference": "1. Instagram (ID 389801252)\n2. Clash of Clans (ID 529479190)\n3. Temple Run (ID 420009108)",
+      "answer": {
+        "kind": "apps",
+        "ordered": true,
+        "items": [
+          {
+            "id": 389801252,
+            "name": "Instagram"
+          },
+          {
+            "id": 529479190,
+            "name": "Clash of Clans"
+          },
+          {
+            "id": 420009108,
+            "name": "Temple Run"
+          }
+        ]
+      }
+    }
+  ]
+}

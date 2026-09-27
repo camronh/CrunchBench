@@ -34,3 +34,11 @@ ENV/
 # Project specific
 .env
 output/*.json
+.venv/
+.env.*
+!.env.example
+.ruff_cache/
+.pytest_cache/
+
+# EZVals: keep benchmark sessions, skip scratch runs
+.ezvals/sessions/smoke/

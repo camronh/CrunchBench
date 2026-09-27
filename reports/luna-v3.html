@@ -1,0 +1,288 @@
+<title>GPT-6 Luna on CrunchBench</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --surface: #ffffff;
+    --ink: #11151c;
+    --ink-2: #4b5260;
+    --ink-3: #7a8190;
+    --rule: #e3e6eb;
+    --grid: #eceef2;
+    --series-1: #2a78d6;
+    --series-2: #eb6834;
+    --cell-1: #2a78d6;
+    --cell-half: #a9c9ef;
+    --cell-0: #eceef2;
+    --cell-0-ink: #7a8190;
+    --cell-ink: #ffffff;
+    --cell-half-ink: #11151c;
+    --tip-bg: #11151c;
+    --tip-ink: #ffffff;
+    --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #13161b;
+      --surface: #1a1e24;
+      --ink: #f2f4f7;
+      --ink-2: #b9bfca;
+      --ink-3: #8a91a0;
+      --rule: #2b3038;
+      --grid: #252a31;
+      --series-1: #3987e5;
+      --series-2: #d95926;
+      --cell-1: #3987e5;
+      --cell-half: #2c4f7a;
+      --cell-0: #252a31;
+      --cell-0-ink: #8a91a0;
+      --cell-ink: #ffffff;
+      --cell-half-ink: #f2f4f7;
+      --tip-bg: #f2f4f7;
+      --tip-ink: #11151c;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #13161b;
+    --surface: #1a1e24;
+    --ink: #f2f4f7;
+    --ink-2: #b9bfca;
+    --ink-3: #8a91a0;
+    --rule: #2b3038;
+    --grid: #252a31;
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --cell-1: #3987e5;
+    --cell-half: #2c4f7a;
+    --cell-0: #252a31;
+    --cell-0-ink: #8a91a0;
+    --cell-ink: #ffffff;
+    --cell-half-ink: #f2f4f7;
+    --tip-bg: #f2f4f7;
+    --tip-ink: #11151c;
+  }
+
+  body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; }
+  .page { max-width: 880px; margin: 0 auto; padding-inline: 20px; padding-block: 32px 48px; display: flex; flex-direction: column; gap: 28px; }
+  h1 { font-size: 26px; line-height: 1.2; font-weight: 700; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+  h2 { font-size: 17px; font-weight: 600; margin: 0; }
+  .eyebrow { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); margin: 0 0 6px; }
+  .lede { margin: 8px 0 0; color: var(--ink-2); max-width: 65ch; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 14px 0 0; padding: 0; list-style: none; font-size: 13px; color: var(--ink-2); }
+  .facts b { font-family: var(--mono); font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  .panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .panel-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 16px; }
+  .note { font-size: 13px; color: var(--ink-3); margin: 0; }
+  .legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--ink-2); }
+  .key { display: inline-flex; align-items: center; gap: 7px; }
+  .swatch-line { width: 18px; height: 2px; border-radius: 2px; }
+  .swatch-cell { width: 14px; height: 14px; border-radius: 3px; }
+
+  .chart-wrap { position: relative; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .axis-label { font-family: var(--mono); font-size: 11px; fill: var(--ink-3); }
+  .axis-title { font-size: 12px; fill: var(--ink-3); }
+  .direct { font-size: 12px; font-weight: 600; }
+  .hit { fill: transparent; cursor: pointer; }
+  .hit:focus { outline: none; }
+  .hit:focus-visible + .ring, .hit:hover + .ring { opacity: 1; }
+  .ring { opacity: 0; pointer-events: none; }
+
+  .tip { position: absolute; pointer-events: none; background: var(--tip-bg); color: var(--tip-ink); font-size: 12px; line-height: 1.45; padding: 8px 10px; border-radius: 6px; min-width: 150px; max-width: 280px; transform: translate(-50%, calc(-100% - 12px)); z-index: 2; }
+  .tip b { font-family: var(--mono); font-weight: 500; }
+  .tip .q { opacity: 0.8; margin-top: 4px; }
+
+  .grid-scroll { overflow-x: auto; }
+  table { border-collapse: separate; border-spacing: 3px; font-size: 13px; min-width: 520px; width: 100%; }
+  th { font-family: var(--mono); font-weight: 500; font-size: 11px; color: var(--ink-3); text-align: center; padding: 2px 0 6px; }
+  th.row { text-align: left; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--ink); padding: 0 10px 0 0; white-space: nowrap; }
+  th.row span { font-weight: 400; color: var(--ink-3); font-size: 12px; margin-left: 6px; }
+  tr.group th { text-align: left; font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; padding: 10px 0 2px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  td { height: 30px; border-radius: 4px; text-align: center; font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; cursor: default; }
+  td.s1 { background: var(--cell-1); color: var(--cell-ink); }
+  td.s5 { background: var(--cell-half); color: var(--cell-half-ink); }
+  td.s0 { background: var(--cell-0); color: var(--cell-0-ink); }
+  td:focus-visible { outline: 2px solid var(--ink); outline-offset: 1px; }
+  tfoot th { padding-top: 8px; }
+  tfoot td { background: transparent; color: var(--ink); font-weight: 500; }
+
+  @media (max-width: 560px) {
+    h1 { font-size: 22px; }
+    .panel { padding: 14px; }
+  }
+</style>
+
+<main class="page">
+  <header>
+    <p class="eyebrow">CrunchBench · session v3</p>
+    <h1>GPT-6 Luna holds up to 16k, then slides to 55% at 512k</h1>
+    <p class="lede">Twenty analytical questions about App Store listings, asked at seven context sizes from 8k to 512k tokens. Each size doubles the one before, so the chart's horizontal axis is logarithmic.</p>
+    <ul class="facts">
+      <li>Overall score <b>78.2%</b></li>
+      <li>Fully correct <b>96 / 140</b></li>
+      <li>Reasoning effort <b>high</b></li>
+      <li>Run cost <b>$1.29</b></li>
+      <li>Errors or cut-offs <b>0</b></li>
+    </ul>
+  </header>
+
+  <section class="panel" aria-labelledby="curve-title">
+    <div class="panel-head">
+      <h2 id="curve-title">Score by context size</h2>
+      <div class="legend" aria-hidden="true">
+        <span class="key"><span class="swatch-line" style="background: var(--series-1)"></span>Score with partial credit</span>
+        <span class="key"><span class="swatch-line" style="background: var(--series-2)"></span>Fully correct</span>
+      </div>
+    </div>
+    <div class="chart-wrap" id="curve"></div>
+    <p class="note">Partial credit is 0.5 for a list answer with some right items. Hover or focus a point for details.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="grid-title">
+    <div class="panel-head">
+      <h2 id="grid-title">Every question at every size</h2>
+      <div class="legend">
+        <span class="key"><span class="swatch-cell" style="background: var(--cell-1)"></span>Correct</span>
+        <span class="key"><span class="swatch-cell" style="background: var(--cell-half)"></span>Partly correct</span>
+        <span class="key"><span class="swatch-cell" style="background: var(--cell-0)"></span>Wrong</span>
+      </div>
+    </div>
+    <div class="grid-scroll chart-wrap" id="grid-wrap"><table id="grid"></table></div>
+  </section>
+</main>
+
+<script>
+const DATA = {"sizes": [8, 16, 32, 64, 128, 256, 512], "apps": {"8": 26, "16": 53, "32": 107, "64": 215, "128": 421, "256": 840, "512": 1731}, "questions": [{"id": "E1", "difficulty": "Easy", "question": "Which 3 apps have the highest rating count? List them from highest to lowest.", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 0.5, "512": 1.0}}, {"id": "E2", "difficulty": "Easy", "question": "Which app has the largest size?", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}}, {"id": "E3", "difficulty": "Easy", "question": "In the 'Games' category, which 5 apps have the highest rating count? List them from highest to lowest.", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}}, {"id": "E4", "difficulty": "Easy", "question": "How many apps are in the 'Games' category?", "scores": {"8": 1.0, "16": 1.0, "32": 0.0, "64": 0.0, "128": 1.0, "256": 0.0, "512": 0.0}}, {"id": "E5", "difficulty": "Easy", "question": "Which app or apps have the highest price? List every app at that price.", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 0.5, "256": 1.0, "512": 1.0}}, {"id": "M1", "difficulty": "Medium", "question": "Among free apps, which 3 have the highest rating? Break ties by higher rating count. List them in order.", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 0.5, "128": 0.5, "256": 0.5, "512": 0.5}}, {"id": "M2", "difficulty": "Medium", "question": "Among paid apps, which 5 have the lowest rating? Break ties by lower rating count. List them in order, lowest first.", "scores": {"8": 1.0, "16": 1.0, "32": 0.5, "64": 0.5, "128": 1.0, "256": 1.0, "512": 0.5}}, {"id": "M3", "difficulty": "Medium", "question": "How many free apps have a rating of 4.5 or higher?", "scores": {"8": 1.0, "16": 1.0, "32": 0.0, "64": 1.0, "128": 0.0, "256": 0.0, "512": 0.0}}, {"id": "M4", "difficulty": "Medium", "question": "Which category has the highest total rating count across its paid apps?", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}}, {"id": "M5", "difficulty": "Medium", "question": "Among apps whose description contains the word 'offline', which 3 have the highest rating count? List them from highest to lowest.", "scores": {"8": 1.0, "16": 0.5, "32": 0.5, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}}, {"id": "H1", "difficulty": "Hard", "question": "Among paid apps, which 3 have the highest ratio of rating count to price? List them from highest ratio to lowest.", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 0.5}}, {"id": "H2", "difficulty": "Hard", "question": "Considering only categories with at least 6 apps, which 3 categories have the highest mean rating? List them from highest to lowest.", "scores": {"8": 1.0, "16": 1.0, "32": 0.5, "64": 1.0, "128": 0.5, "256": 0.5, "512": 0.5}}, {"id": "H3", "difficulty": "Hard", "question": "What is the mean price of the paid apps in the 'Games' category? Round to 2 decimal places.", "scores": {"8": 1.0, "16": 1.0, "32": 0.0, "64": 0.0, "128": 0.0, "256": 0.0, "512": 0.0}}, {"id": "H4", "difficulty": "Hard", "question": "In the 'Games' category, among apps whose description contains the word 'multiplayer' or the word 'achievements', which 3 have the highest rating? Break ties by higher rating count. List them in order.", "scores": {"8": 1.0, "16": 0.5, "32": 1.0, "64": 1.0, "128": 1.0, "256": 0.5, "512": 1.0}}, {"id": "H5", "difficulty": "Hard", "question": "Among apps larger than 200 MB with a rating of 4.5 or higher, which 10 are the largest? List them from largest to smallest.", "scores": {"8": 1.0, "16": 1.0, "32": 0.5, "64": 0.5, "128": 0.5, "256": 0.5, "512": 0.5}}, {"id": "V1", "difficulty": "Very Hard", "question": "For each category with at least 3 paid apps, divide the mean rating of its paid apps by the mean price of its paid apps. Which category has the highest result?", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 0.0}}, {"id": "V2", "difficulty": "Very Hard", "question": "Considering only categories with at least 5 apps, which category has the largest population standard deviation of rating?", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 0.0, "256": 1.0, "512": 0.0}}, {"id": "V3", "difficulty": "Very Hard", "question": "Which 3 categories have the most apps with a rating of 4.5 or higher? Break ties by the higher combined rating count of those apps. List them in order.", "scores": {"8": 0.5, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 0.5}}, {"id": "V4", "difficulty": "Very Hard", "question": "Among apps larger than 100 MB, which category has the highest mean rating count? Only consider categories with at least 3 such apps.", "scores": {"8": 1.0, "16": 1.0, "32": 1.0, "64": 1.0, "128": 1.0, "256": 1.0, "512": 0.0}}, {"id": "V5", "difficulty": "Very Hard", "question": "Among apps whose rating is strictly higher than the mean rating of all apps in their own category, which 3 have the highest rating count? List them from highest to lowest.", "scores": {"8": 1.0, "16": 0.5, "32": 0.5, "64": 1.0, "128": 1.0, "256": 1.0, "512": 1.0}}]};
+
+const NS = "http://www.w3.org/2000/svg";
+const sizes = DATA.sizes;
+const qs = DATA.questions;
+const bySize = sizes.map(s => {
+  const v = qs.map(q => q.scores[s]);
+  return { size: s, apps: DATA.apps[s], score: v.reduce((a, b) => a + b, 0) / v.length * 100, exact: v.filter(x => x === 1).length };
+});
+
+function el(name, attrs, parent) {
+  const n = document.createElementNS(NS, name);
+  for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+
+function makeTip(wrap) {
+  const tip = document.createElement("div");
+  tip.className = "tip";
+  tip.hidden = true;
+  tip.setAttribute("role", "status");
+  wrap.appendChild(tip);
+  return {
+    show(html, x, y) { tip.innerHTML = html; tip.hidden = false; tip.style.left = x + "px"; tip.style.top = y + "px"; },
+    hide() { tip.hidden = true; }
+  };
+}
+
+function drawCurve() {
+  const wrap = document.getElementById("curve");
+  const W = 800, H = 330, m = { t: 16, r: 110, b: 52, l: 44 };
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Line chart of GPT-6 Luna's score by context size, from 97.5% at 8k tokens to 55% at 512k tokens." }, wrap);
+  const iw = W - m.l - m.r, ih = H - m.t - m.b;
+  const lx = s => m.l + (Math.log2(s) - Math.log2(8)) / (Math.log2(512) - Math.log2(8)) * iw;
+  const y = v => m.t + (1 - v / 100) * ih;
+
+  for (const t of [0, 25, 50, 75, 100]) {
+    el("line", { x1: m.l, x2: m.l + iw, y1: y(t), y2: y(t), stroke: "var(--grid)", "stroke-width": 1 }, svg);
+    const lab = el("text", { x: m.l - 8, y: y(t) + 4, "text-anchor": "end", class: "axis-label" }, svg);
+    lab.textContent = t + "%";
+  }
+  for (const s of sizes) {
+    const lab = el("text", { x: lx(s), y: m.t + ih + 20, "text-anchor": "middle", class: "axis-label" }, svg);
+    lab.textContent = s + "k";
+  }
+  const at = el("text", { x: m.l + iw / 2, y: H - 8, "text-anchor": "middle", class: "axis-title" }, svg);
+  at.textContent = "Context size in tokens (each step doubles)";
+
+  const series = [
+    { key: "score", color: "var(--series-1)", label: "Score", val: d => d.score },
+    { key: "exact", color: "var(--series-2)", label: "Fully correct", val: d => d.exact / 20 * 100 }
+  ];
+  for (const s of series) {
+    el("polyline", { points: bySize.map(d => `${lx(d.size)},${y(s.val(d))}`).join(" "), fill: "none", stroke: s.color, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+    for (const d of bySize) el("circle", { cx: lx(d.size), cy: y(s.val(d)), r: 4.5, fill: s.color, stroke: "var(--surface)", "stroke-width": 2 }, svg);
+    const last = bySize[bySize.length - 1];
+    const t = el("text", { x: lx(last.size) + 12, y: y(s.val(last)) + 4, class: "direct", fill: "var(--ink)" }, svg);
+    t.textContent = `${s.label} ${s.val(last).toFixed(s.key === "score" ? 1 : 0)}%`;
+  }
+
+  const tip = makeTip(wrap);
+  const colW = iw / (sizes.length - 1);
+  bySize.forEach(d => {
+    const cx = lx(d.size);
+    const hit = el("rect", { x: cx - colW / 2, y: m.t, width: colW, height: ih, class: "hit", tabindex: 0, "aria-label": `${d.size}k tokens: score ${d.score.toFixed(1)}%, ${d.exact} of 20 fully correct` }, svg);
+    el("line", { x1: cx, x2: cx, y1: m.t, y2: m.t + ih, stroke: "var(--ink-3)", "stroke-width": 1, "stroke-dasharray": "3 3", class: "ring" }, svg);
+    const show = () => {
+      const r = svg.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+      const px = r.left - wr.left + cx / W * r.width;
+      const py = r.top - wr.top + y(Math.max(d.score, d.exact * 5)) / H * r.height;
+      tip.show(`<b>${d.size}k tokens</b> · ${d.apps.toLocaleString()} apps<br>Score <b>${d.score.toFixed(1)}%</b><br>Fully correct <b>${d.exact} / 20</b>`, px, py);
+    };
+    hit.addEventListener("mouseenter", show);
+    hit.addEventListener("focus", show);
+    hit.addEventListener("mouseleave", tip.hide);
+    hit.addEventListener("blur", tip.hide);
+  });
+}
+
+function drawGrid() {
+  const table = document.getElementById("grid");
+  const wrap = document.getElementById("grid-wrap");
+  const tip = makeTip(wrap);
+  const thead = document.createElement("thead");
+  thead.innerHTML = `<tr><th scope="col"><span class="sr">Question</span></th>${sizes.map(s => `<th scope="col">${s}k</th>`).join("")}</tr>`;
+  table.appendChild(thead);
+  const tbody = document.createElement("tbody");
+  let group = null;
+  const label = { 1: "Correct", 0.5: "Partly correct", 0: "Wrong" };
+  const mark = { 1: "1", 0.5: "½", 0: "0" };
+  for (const q of qs) {
+    if (q.difficulty !== group) {
+      group = q.difficulty;
+      tbody.insertAdjacentHTML("beforeend", `<tr class="group"><th colspan="${sizes.length + 1}" scope="rowgroup">${group}</th></tr>`);
+    }
+    const tr = document.createElement("tr");
+    const short = q.question.length > 38 ? q.question.slice(0, 36).trimEnd() + "…" : q.question;
+    tr.innerHTML = `<th class="row" scope="row" title="${q.question.replace(/"/g, "&quot;")}">${q.id}<span>${short}</span></th>`;
+    for (const s of sizes) {
+      const v = q.scores[s];
+      const td = document.createElement("td");
+      td.className = v === 1 ? "s1" : v === 0.5 ? "s5" : "s0";
+      td.textContent = mark[v];
+      td.tabIndex = 0;
+      td.setAttribute("aria-label", `${q.id} at ${s}k: ${label[v]}`);
+      const show = () => {
+        const r = td.getBoundingClientRect(), wr = wrap.getBoundingClientRect();
+        tip.show(`<b>${q.id} · ${s}k</b> · ${label[v]}<div class="q">${q.question}</div>`, r.left - wr.left + wrap.scrollLeft + r.width / 2, r.top - wr.top);
+      };
+      td.addEventListener("mouseenter", show);
+      td.addEventListener("focus", show);
+      td.addEventListener("mouseleave", tip.hide);
+      td.addEventListener("blur", tip.hide);
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  }
+  table.appendChild(tbody);
+  const tfoot = document.createElement("tfoot");
+  tfoot.innerHTML = `<tr><th class="row" scope="row">Score</th>${bySize.map(d => `<td>${d.score.toFixed(1)}%</td>`).join("")}</tr>`;
+  table.appendChild(tfoot);
+}
+
+drawCurve();
+drawGrid();
+</script>

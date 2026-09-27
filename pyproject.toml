@@ -1,31 +1,35 @@
-[tool.poetry]
+[project]
 name = "crunchbench"
-version = "0.1.0"
-description = "LLM Analytics Benchmark for testing how well LLMs handle unstructured data queries"
-authors = ["Your Name <your.email@example.com>"]
+version = "0.2.0"
+description = "Measures an LLM's ability to analyze unstructured data across context sizes"
 readme = "readme.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ezvals>=0.1.10",
+    "langsmith>=0.14.0",
+    "matplotlib>=3.11.2",
+    "openai>=3.19.2",
+    "pandas>=3.0.6",
+    "python-dotenv>=1.2.3",
+    "tiktoken>=0.14.0",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-pandas = "^2.2.3"
-tiktoken = "^0.8.0"
-kaggle = "^1.6.17"
-tqdm = "^4.67.1"
-python-dotenv = "^1.0.1"
-openai = "^1.59.3"
-pydantic = "^2.10.4"
-langsmith = "^0.2.10"
-langchain-openai = "^0.2.14"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "^8.3.4"
-black = "^24.10.0"
-isort = "^5.13.2"
-mypy = "^1.14.1"
-pandas-stubs = "^2.2.3.241126"
-ipykernel = "^6.29.5"
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.16.8",
+]
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["crunchbench"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 120
